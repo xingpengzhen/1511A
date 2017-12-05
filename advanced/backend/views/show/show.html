@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<center>
+    <form action="">
+        <table>
+            <input type="hidden" name="id" value="<?php echo $arr['id'] ?>"/>
+            <input type="hidden" name="username" value="<?php echo $username  ?>"/>
+            <tr>
+                <td>用户留言</td>
+                <td><textarea cols="30" role="10" name="content"><?php echo $arr['content']  ?></textarea></td>
+            </tr>
+        </table>
+        <a href="?r=show/add&username=<?php echo $username  ?>">返回</a>
+    </form>
+</center>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?php
+use yii\widgets\LinkPager;
+
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<center>
+    <form action="?r=show/add&username=<?php echo $username  ?>" method="post">
+    <table>
+        <input type="hidden" name="username" value="<?php echo $username  ?>"/>
+        <tr>
+            <td>用户留言</td>
+            <td><textarea cols="30" role="10" name="content"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="留言"/></td>
+        </tr>
+    </table>
+    </form>
+    <table border="1">
+        <tr>
+            <td>留言人</td>
+            <td>留言内容</td>
+            <td>操作</td>
+        </tr>
+        <?php foreach($good as $val){ ?>
+        <tr>
+            <td><?php  echo $val['username'] ?></td>
+            <td><?php  echo $val['content'] ?></td>
+            <td><a href="?r=show/del&id=<?php  echo $val['id'] ?>&username=<?php echo $username  ?>">删除</a>/
+                <a href="?r=show/upd&id=<?php  echo $val['id'] ?>&username=<?php echo $username   ?>">修改</a>/
+                <a href="?r=show/show&id=<?php  echo $val['id'] ?>&username=<?php echo $username   ?>">详情</a>
+            </td>
+        </tr>
+        <?php } ?>
+    </table>
+    <?php
+        echo yii\widgets\LinkPager::widget([
+            'pagination' => $page,
+    ]);
+    ?>
+</center>
+</body>
+</html>
